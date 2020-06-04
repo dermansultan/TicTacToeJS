@@ -6,9 +6,13 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.gameBoard{
+.title{
+    text-align: center;
     width: 100vw;
-    height: 100vh;
+}
+
+.gameBoard{
+    margin-top: 20px;
     display: grid;
     justify-content: center;
     align-content: center;
@@ -17,7 +21,29 @@
 
 .space{
     width: 90px;
-    background-color: white;
+    background-color: black;
+    color: white;
     height: 90px;
-    border: 0.90px solid black;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.gameControls{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#resetBtn{
+    border-radius: 3px;
+    width: 100px;
+    height: 40px;
+    border: 0;
+    background-color: black;
+    color: white;
 }
