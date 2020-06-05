@@ -7,7 +7,11 @@ const gameBoard = (() =>
 let gameSpaces = ['','','','','','','','',''];
 console.log(gameSpaces)
 const resetBoard = () => {
-    gameSpaces = ['','','','','','','','',''];
+    for(let i = 0; i < gameSpaces.length; i++){
+        if (gameSpaces[i] == 'X' || 'O') {
+            gameSpaces[i] = '';
+        }
+    }
     let board = document.getElementsByClassName('space');
         for (let space of board) {
             space.innerHTML = '';
@@ -36,9 +40,10 @@ const displayController = (() => {
         console.log('space was clicked!');
         console.log(this);
         // this.innerHTML = 'X';
-        if (gameBoard.gameSpaces[Number(this.dataset.space)] == "") {
-            gameBoard.gameSpaces[Number(this.dataset.space)] = 'X'
-        }
+        // if (gameBoard.gameSpaces[Number(this.dataset.space)] == "") {
+        //     gameBoard.gameSpaces[Number(this.dataset.space)] = 'X'
+        // }
+        gameBoard.gameSpaces[Number(this.dataset.space)] = 'X'
         console.log(gameBoard.gameSpaces);
         render()
 
