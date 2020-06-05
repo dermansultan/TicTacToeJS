@@ -6,6 +6,7 @@ const gameBoard = (() =>
 {
 let gameSpaces = ['','','','','','','','',''];
 console.log(gameSpaces)
+
 const resetBoard = () => {
     for(let i = 0; i < gameSpaces.length; i++){
         if (gameSpaces[i] == 'X' || 'O') {
@@ -17,6 +18,16 @@ const resetBoard = () => {
             space.innerHTML = '';
         }
         console.log(gameSpaces);
+        
+        // Reset currentPlayer
+        gameState.currentPlayerisX = true;
+        gameState.totalMoves = 0;
+        gameState.movesO = 0;
+        gameState.movesX = 0;
+        console.log(gameState.totalMoves);
+        console.log(gameState.movesX);
+        console.log(gameState.movesO);
+
 }
 let resetBtn = document.getElementById('resetBtn');
 resetBtn.addEventListener('click', resetBoard);
@@ -39,13 +50,26 @@ const displayController = (() => {
     {
         console.log('space was clicked!');
         console.log(this);
-        // this.innerHTML = 'X';
-        // if (gameBoard.gameSpaces[Number(this.dataset.space)] == "") {
-        //     gameBoard.gameSpaces[Number(this.dataset.space)] = 'X'
-        // }
-        gameBoard.gameSpaces[Number(this.dataset.space)] = 'X'
+        if (gameState.currentPlayerisX === true ) {
+            if (gameBoard.gameSpaces[Number(this.dataset.space)] == "") {
+                gameBoard.gameSpaces[Number(this.dataset.space)] = 'X';
+                gameState.movesX++;
+                gameState.totalMoves++;
+                gameState.currentPlayerisX = false;
+            }
+        } else if (gameState.currentPlayerisX === false) {
+            if (gameBoard.gameSpaces[Number(this.dataset.space)] == "") {
+                gameBoard.gameSpaces[Number(this.dataset.space)] = 'O';
+                gameState.movesO++;
+                gameState.totalMoves++;
+                gameState.currentPlayerisX = true;
+            }
+        }
         console.log(gameBoard.gameSpaces);
-        render()
+        console.log(gameState.totalMoves);
+        console.log(gameState.movesX);
+        console.log(gameState.movesO);
+        render();
 
     }
     return {render, tileClick}
@@ -61,29 +85,29 @@ let totalMoves = 0;
 let movesO = 0;
 let movesX = 0;
 
-const gameEnd = (totalMoves) => {
-if (totalMoves >= 9) {
-    // inner html blah blah game over screen or something
-}
-}
+// True is P1, False is P2
+let currentPlayerisX = true;
+
+// const gameEnd = (totalMoves) => {
+// if (totalMoves >= 9) {
+//     // inner html blah blah game over screen or something
+// }
+// }
 
 const gameCheck = () => {
     // Check the array each turn based on the winning combinations  
 }
 
-return { totalMoves, movesO, movesX };
+return { totalMoves, movesO, movesX, currentPlayerisX };
 })();
 
 
 
 // Player Function Factory
-const Player = (piece) => {
-    const addPiece = (space) => {
-        // piece is set to space in which data set is pulled from: 
-        gameBoard.gameSpaces[space.dataset.space] = piece;
-        displayController.render();
-    } 
-    return {addPiece}
+const Player = () => {
+let playerWins = 0;
+let playerLosses = 0;
+    return {playerWins, playerLosses}
 }
 
 //Players 
