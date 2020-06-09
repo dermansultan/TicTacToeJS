@@ -46,6 +46,7 @@ const displayController = (() => {
     let modalParaO = document.getElementById('modalParaO');
     let modalBtn = document.getElementById('modalBtn');
 
+
     
     const gameRestart = () => {        
         gameBoard.resetBoard();
@@ -105,6 +106,10 @@ const displayController = (() => {
 
     }
 
+    modalOverlay.addEventListener("click", () => {
+        gameBoard.resetBoard();
+        modalClose();
+    });
 
     return {render, tileClick, modalOpen, modalClose, modalContents, modalOverlay, modalTitle, modalParaX, modalParaO, modalBtn}
 })();
