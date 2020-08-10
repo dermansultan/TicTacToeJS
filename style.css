@@ -1,149 +1,147 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    overflow-x: hidden;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
 }
 
-body{
-    background-color: #273c75;
+body {
+  background-color: #273c75;
 }
 
-.title{
-    color: #fbc531;
-    text-align: center;
-    font-size: 2em;
+.title {
+  color: #fbc531;
+  text-align: center;
+  font-size: 2em;
 }
 
-.gameBoard{
-    margin-top: 25px;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    grid-template-columns: repeat(3, auto);
+.gameBoard {
+  margin-top: 25px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(3, auto);
 }
 
-.space{
-    width: 175px;
-    background-color: #fbc531;
-    color: #273c75;
-    height: 175px;
-    border: 8px solid #273c75;
-    border-radius: 10px;
-    font-size: 8em;
-    font-weight: 700;
-    text-align: center;
-    overflow-y: hidden;
+.space {
+  width: 175px;
+  background-color: #fbc531;
+  color: #273c75;
+  height: 175px;
+  border: 8px solid #273c75;
+  border-radius: 10px;
+  font-size: 8em;
+  font-weight: 700;
+  text-align: center;
+  overflow-y: hidden;
 }
 
-.gameControls{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+.gameControls {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
-#resetBtn{
-    border-radius: 3px;
-    width: 200px;
-    height: 50px;
-    border: 0;
-    font-size: 1.5em;
-    background-color: #192a56;
-    border-radius: 8px;
-    color: #fbc531;
+#resetBtn {
+  border-radius: 3px;
+  width: 200px;
+  height: 50px;
+  border: 0;
+  font-size: 1.5em;
+  background-color: #192a56;
+  border-radius: 8px;
+  color: #fbc531;
 }
 
-#modal{
-    visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: stretch;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+#modal {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modalContent{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: stretch;
-    background-color: #192a56;
-    width: 600px;
-    height: 300px;
-    border-radius: 15px;
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  background-color: #192a56;
+  width: 600px;
+  height: 300px;
+  border-radius: 15px;
 }
 
-#modalBtn{
-    margin-top: 30px;
-    border: none;
-    background-color: #fbc531;
-    border-radius: 5px;
-    width: 300px;
-    height: 50px;
-    font-weight: 700;
-    font-size: 1.5em;
-    color: #192a56;
+#modalBtn {
+  margin-top: 30px;
+  border: none;
+  background-color: #fbc531;
+  border-radius: 5px;
+  width: 300px;
+  height: 50px;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: #192a56;
 }
 
-#modalTitle{
-font-size: 3em;
-color: #fbc531;
+#modalTitle {
+  font-size: 3em;
+  color: #fbc531;
 }
 
-#modalParaO, #modalParaX{
-font-size: 1.5em;
-color: #f5f6fa;
+#modalParaO,
+#modalParaX {
+  font-size: 1.5em;
+  color: #f5f6fa;
 }
-
 
 /* Responsive Design  */
 @media only screen and (max-width: 767px) {
-    
+  .title {
+    font-size: 1em;
+  }
 
-    .title{
-        font-size: 1em;
-    }
-    
-    .space{
-        width: 80px;
-        height: 80px;
-        font-size: 4em;
-    }
+  .space {
+    width: 80px;
+    height: 80px;
+    font-size: 4em;
+  }
 
-    .modalContent{
-        margin-top: 50px;
-        width: 300px;
-        height: 250px;
-    }
+  .modalContent {
+    margin-top: 50px;
+    width: 300px;
+    height: 250px;
+  }
 
-    #modal{
-        justify-content: start;
-    }
+  #modal {
+    justify-content: start;
+  }
 
-    #modalBtn{
-        width: 200px;
-    }
+  #modalBtn {
+    width: 200px;
+  }
 
-    #modalTitle{
-        font-size: 1.5em;
-    }
+  #modalTitle {
+    font-size: 1.5em;
+  }
 
-    #modalParaO, #modalParaX{
-        font-size: 1em;
-    }
+  #modalParaO,
+  #modalParaX {
+    font-size: 1em;
+  }
 }
-
